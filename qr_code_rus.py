@@ -14,7 +14,7 @@ def error():
     
 
 def save():
-    print(Fore.GREEN + "QR-код был сгенерирован. Сохраненно в папку где находиться программа")
+    print(Fore.GREEN + "QR-код был сгенерирован. Сохраненно в папку где находиться программа" + Fore.RESET)
 
 
 while True:
@@ -64,32 +64,49 @@ while True:
     [ 1 ] - Черный
     [ 2 ] - Серый
     [ 3 ] - Синий
-    [ 4 ] - Вернуться''')
+    [ 4 ] - Красный
+    [ 5 ] - Свой вариант
+    [ 6 ] - Выйти''')
             
             colorqr = input(Fore.CYAN + f"\nВыберете команду:{Fore.RESET} ")
-            
-            if colorqr == "1":
-                nameqr = input("Введите название для qr-кода: ")
-                qrcod = input(Fore.RESET + "\nВведите ссылку для QR-кода: ")
-                qrcode = segno.make_qr(f"{qrcod}")
-                qrcode.save(f'{nameqr}.png', dark=None, light='black', scale=10)
-                save()
-            elif colorqr == "2":
-                nameqr = input("Введите название для qr-кода: ")
-                qrcod = input(Fore.RESET + "\nВведите ссылку для QR-кода: ")
-                qrcode = segno.make_qr(f"{qrcod}")
-                qrcode.save(f'{nameqr}.png', light=None, scale=10)
-                save()
-            elif colorqr == "3":
-                nameqr = input("Введите название для qr-кода: ")
-                qrcod = input(Fore.RESET + "\nВведите ссылку для QR-кода: ")
-                qrcode = segno.make_qr(f"{qrcod}")
-                qrcode.save(f'{nameqr}.png', dark='#00fc', scale=10)
-                save()
-            elif colorqr == "4":
-                main()
-            else:
-                error()             
+            try:
+                if colorqr == "1":
+                    nameqr = input("Введите название для qr-кода: ")
+                    qrcod = input(Fore.RESET + "\nВведите ссылку для QR-кода: ")
+                    qrcode = segno.make_qr(f"{qrcod}")
+                    qrcode.save(f'{nameqr}.png', dark=None, light='black', scale=10)
+                    save()
+                elif colorqr == "2":
+                    nameqr = input("Введите название для qr-кода: ")
+                    qrcod = input(Fore.RESET + "\nВведите ссылку для QR-кода: ")
+                    qrcode = segno.make_qr(f"{qrcod}")
+                    qrcode.save(f'{nameqr}.png', light=None, scale=10)
+                    save()
+                elif colorqr == "3":
+                    nameqr = input("Введите название для qr-кода: ")
+                    qrcod = input(Fore.RESET + "\nВведите ссылку для QR-кода: ")
+                    qrcode = segno.make_qr(f"{qrcod}")
+                    qrcode.save(f'{nameqr}.png', dark='#00fc', scale=10)
+                    save()
+                elif colorqr == "4":
+                    nameqr = input("Введите название для qr-кода: ")
+                    qrcod = input(Fore.RESET + "\nВведите ссылку для QR-кода: ")
+                    qrcode = segno.make_qr(f"{qrcod}")
+                    qrcode.save(f'{nameqr}.png', dark='#ff0000', scale=10)
+                    save()
+                elif colorqr == "5":
+                    nameqr = input("Введите название для qr-кода: ")
+                    qrcod = input(Fore.RESET + "\nВведите ссылку для QR-кода: ")
+                    color = input("\nВведите цветой код в формате #000000: ")
+                    qrcode = segno.make_qr(f"{qrcod}")
+                    qrcode.save(f'{nameqr}.png', dark=f'{color}', scale=10)
+                    save()
+                elif colorqr == "6":
+                    main()
+                else:
+                    error()   
+            except ValueError:
+                error()          
         else:
             error()
         returnn()
