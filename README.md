@@ -9,6 +9,8 @@ Eng:
 2. Generate multicolored QR codes
 Black
 Gray
+Red
+Custom QR code color option
 Blue (more colors will be added in the future)
 ___
 All libraries used
@@ -30,6 +32,7 @@ Rus:
    Черынй
    Серый
    Красный
+   Свой вариант цвета QR-кода
    Синий ( в будущем будет добавлено больше цветов )
 ___
 Все используемые библиотеки
