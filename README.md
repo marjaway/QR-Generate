@@ -11,7 +11,7 @@ Black
 Gray
 Red
 Custom QR code color option
-Blue (more colors will be added in the future)
+Blue
 ___
 All libraries used
 ```python
